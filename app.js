@@ -38,7 +38,7 @@ app.get('/artist-search', async (req, res, next) => {
     try {
         const {body: {artists: {items: artists}}} = await spotifyApi.searchArtists(req.query.artist);
 
-        res.render('artist-search-result', {artists})
+        res.render('artist-search-result', {artists, searchTerm: req.query.artist})
 
     } catch (error) {
         console.log('Error occurred while searching for artist')

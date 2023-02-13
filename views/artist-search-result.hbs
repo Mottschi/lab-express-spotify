@@ -1,7 +1,10 @@
-<ul id="artists">
-    {{#each artists}}
-        <li class="artist-container">
-            {{>artist this}}
-        </li>
-    {{/each}}
-</ul>
+<div class="column">
+    <h1>Search Results for "{{searchTerm}}"</h1>
+    <ul id="artists">
+        {{#each artists}}
+            <li class="artist-container">
+                {{>artist this}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
