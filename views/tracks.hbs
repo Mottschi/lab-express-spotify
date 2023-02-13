@@ -1,5 +1,12 @@
-<ul id="tracks">
-    {{#each tracks}}
-        <li class="track-container">{{>track this}}</li>
-    {{/each}}
-</ul>
+<div class="tracks-column">
+    <div class="tracks-header">
+        <img src="{{imageUrl}}"alt="Cover Picture of the album {{albumName}} by {{artistName}}">
+        <div class="tracks-album-info"><h1>{{albumName}}</h1><h2>({{artistName}})</h2></div>
+    </div>
+    
+    <ul id="tracks">
+        {{#each tracks}}
+            <li class="track-container">{{>track this}}</li>
+        {{/each}}
+    </ul>
+</div>

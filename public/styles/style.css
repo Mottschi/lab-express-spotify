@@ -23,15 +23,6 @@ main {
     align-items: center;
 }
 
-.track-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5rem 5rem;
-    padding: 0.5rem;
-    background-color: lightgoldenrodyellow;
-    align-items: center;
-}
-
 .search-container {
     display: flex;
     flex-direction: column;
@@ -61,6 +52,8 @@ main {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
+    height: 100%;
+    justify-content: space-evenly;
 }
 
 .album-container {
@@ -69,6 +62,9 @@ main {
     flex-direction: column;
     width: 25rem;
     text-align: center;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    padding: 1rem;
 }
 
 #albums img {
@@ -76,10 +72,6 @@ main {
     aspect-ratio: 1;
 }
 
-/* Styling the album title so there is enough space for two lines 
-(fixed, so that it's the same for all albums on the page), 
-in cases where the titles are especially long, overflow is cut off
-rather then moving into the album cover  */
 #albums h3 {
     height: 3rem;
     overflow: hidden;
@@ -92,22 +84,77 @@ rather then moving into the album cover  */
     list-style-type: none;
     margin: 2rem;
     height: 100%;
+    justify-content: space-evenly;
 }
 
 .artist-container {
-    margin: 2rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     width: 25rem;
     text-align: center;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    padding: 1rem;
 }
 
 #artist img {
     width: 100%;
     aspect-ratio: 1;
+    
 }
 
 #artist h3 {
     height: 3rem;
     overflow: hidden;
+}
+
+#artist a {
+    justify-self: flex-end;
+}
+
+#tracks {
+    width: 70%;
+    height: 100%;
+}
+
+.track-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 5rem;
+    padding: 0.5rem;
+    background-color: #f1ebeb;
+    align-items: center;
+    border: 0.5px solid black;
+    border-radius: 5px;
+}
+
+.tracks-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.tracks-column img {
+    width: 10rem;
+}
+
+.tracks-header {
+    display: flex;
+    align-items: center;
+    margin: 2rem 1rem 1rem;
+}
+
+.tracks-header h2, .tracks-header h1{
+    margin: 1rem;
+}
+
+.albums-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
 }

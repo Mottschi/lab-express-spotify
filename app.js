@@ -46,12 +46,12 @@ app.get('/artist-search', async (req, res, next) => {
     }
 })
 
-app.get('/albums/:id', async (req, res, next) => {
+app.get('/albums/:id/:artist', async (req, res, next) => {
     try {
-        const id = req.params.id;
+        const {id, artist} = req.params;
         const {body: {items: albums}} = await spotifyApi.getArtistAlbums(id);
 
-        res.render('albums', {albums})
+        res.render('albums', {albums, artist})
 
     } catch (error) {
         console.log('Error occurred while looking up albums');
@@ -62,15 +62,20 @@ app.get('/albums/:id', async (req, res, next) => {
 app.get('/tracks/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
-        const {body: {items: tracks}} = await spotifyApi.getAlbumTracks(id);
 
-        res.render('tracks', {tracks})
 
+        const promiseArray = [spotifyApi.getAlbumTracks(id), await spotifyApi.getAlbum(id)]
+        /* Getting the album is not required by specification, but used to make the tracks page 
+        more interesting looking */
+        const [{body: {items: tracks}}, 
+                {body: {images: [{url: imageUrl}], name: albumName, artists: [{name: artistName}]}}
+            ] = await Promise.all(promiseArray);
+
+        res.render('tracks', {tracks, albumName, artistName, imageUrl});
     } catch (error) {
         console.log('Error occurred while looking up tracks')
     }
 })
-
 
 
 app.use((error, req, res, next) => {
@@ -78,4 +83,4 @@ app.use((error, req, res, next) => {
     res.render('error', {error});
 })
 
-app.listen(3000, () => console.log('My Spotify project running on port 3000 🎧 🥁 🎸 🔊'));
+app.listen(3000, () => console.log('My Spotify project running http://localhost:3000/ 🎧 🥁 🎸 🔊'));

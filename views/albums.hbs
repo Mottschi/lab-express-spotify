@@ -1,5 +1,8 @@
-<ul id="albums">
-    {{#each albums}}
-        <li class="album-container">{{>album this}}</li>
-    {{/each}}
-</ul>
+<div class="albums-column">
+    <h1>Albums by {{artist}}</h1>
+    <ul id="albums">
+        {{#each albums}}
+            <li class="album-container">{{>album this}}</li>
+        {{/each}}
+    </ul>
+</div>
