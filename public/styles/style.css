@@ -56,3 +56,58 @@ main {
     color: white;
     margin: 0.5rem;
 }
+
+#albums {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.album-container {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    text-align: center;
+}
+
+#albums img {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+/* Styling the album title so there is enough space for two lines 
+(fixed, so that it's the same for all albums on the page), 
+in cases where the titles are especially long, overflow is cut off
+rather then moving into the album cover  */
+#albums h3 {
+    height: 3rem;
+    overflow: hidden;
+}
+
+
+#artists {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 2rem;
+    height: 100%;
+}
+
+.artist-container {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    text-align: center;
+}
+
+#artist img {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+#artist h3 {
+    height: 3rem;
+    overflow: hidden;
+}
